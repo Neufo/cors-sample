@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="send()">send</button>
+    </body>
+    <script>
+        function send() {
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            xhr.onload = function () {
+                console.log(xhr.response);
+            };
+
+            xhr.open("GET", "http://localhost:3000/", true);
+            //xhr.setRequestHeader("Cache-Control", "no-cache");
+
+            xhr.send(null);
+        }
+    </script>
+</html>
